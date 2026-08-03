@@ -38,7 +38,7 @@ function ProductGallery({ images, name }) {
             key={src}
             src={src}
             alt={`${name} — foto ${index + 1} di ${images.length}`}
-            className="h-full w-full flex-none snap-center object-cover"
+            className="h-full w-full flex-none snap-center object-contain"
           />
         ))}
       </div>
