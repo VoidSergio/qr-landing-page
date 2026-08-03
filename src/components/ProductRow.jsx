@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
 
 function ProductRow({ product }) {
-  const { id, category, name, price, image } = product
+  const { id, category, name, price, images } = product
+  const image = images?.[0]
 
   return (
     <Link

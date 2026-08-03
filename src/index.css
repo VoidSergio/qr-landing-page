@@ -75,3 +75,14 @@
     @apply bg-crema font-sans text-corpo text-scuro antialiased;
   }
 }
+
+@layer utilities {
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}

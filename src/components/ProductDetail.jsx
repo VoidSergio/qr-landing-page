@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
 import { products } from '../data/products'
+import ProductGallery from './ProductGallery'
 
 function ProductDetail() {
   const { id } = useParams()
@@ -21,20 +22,12 @@ function ProductDetail() {
     )
   }
 
-  const { category, name, description, price, image } = product
+  const { category, name, description, price, images } = product
 
   return (
     <main className="flex h-dvh flex-col overflow-hidden bg-crema">
       <div className="min-h-0 flex-1 overflow-hidden bg-attesa">
-        {image ? (
-          <img src={image} alt={name} className="h-full w-full object-cover" />
-        ) : (
-          <div className="flex h-full items-center justify-center">
-            <span className="text-etichetta uppercase tracking-[0.28em] text-scuro/40">
-              In arrivo
-            </span>
-          </div>
-        )}
+        <ProductGallery images={images ?? []} name={name} />
       </div>
 
       <div className="mx-auto flex w-full max-w-xl flex-shrink-0 flex-col gap-2 px-gutter py-elemento">

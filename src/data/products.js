@@ -10,7 +10,8 @@ export const products = [
     name: 'Sedia',
     description: 'Struttura in legno massello, scocca imbottita.',
     price: 320,
-    image: sedia,
+    // TODO: sostituire con le foto reali di questo prodotto.
+    images: [sedia, poltrona, sospensione, libreria],
   },
   {
     id: 2,
@@ -18,7 +19,8 @@ export const products = [
     name: 'Poltrona',
     description: 'Imbottitura in schiuma differenziata, rivestimento sfoderabile.',
     price: 890,
-    image: poltrona,
+    // TODO: sostituire con le foto reali di questo prodotto.
+    images: [poltrona, sedia, sospensione, libreria],
   },
   {
     id: 3,
@@ -26,7 +28,8 @@ export const products = [
     name: 'Sospensione',
     description: 'Diffusore in vetro soffiato, cavo regolabile.',
     price: 415,
-    image: sospensione,
+    // TODO: sostituire con le foto reali di questo prodotto.
+    images: [sospensione, sedia, poltrona, libreria],
   },
   {
     id: 4,
@@ -34,6 +37,7 @@ export const products = [
     name: 'Libreria',
     description: 'Moduli componibili in rovere, montaggio a parete.',
     price: 1240,
-    image: libreria,
+    // TODO: sostituire con le foto reali di questo prodotto.
+    images: [libreria, sedia, poltrona, sospensione],
   },
 ]

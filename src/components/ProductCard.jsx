@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
 
 function ProductCard({ product }) {
-  const { id, category, name, description, price, image } = product
+  const { id, category, name, description, price, images } = product
+  const image = images?.[0]
 
   return (
     <Link
