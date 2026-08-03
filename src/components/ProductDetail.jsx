@@ -7,7 +7,7 @@ function ProductDetail() {
 
   if (!product) {
     return (
-      <main className="flex min-h-screen flex-col items-center justify-center gap-elemento bg-crema px-gutter text-center">
+      <main className="flex h-dvh flex-col items-center justify-center gap-elemento bg-crema px-gutter text-center">
         <p className="font-display text-titolo-medio text-scuro">
           Prodotto non trovato
         </p>
@@ -24,18 +24,20 @@ function ProductDetail() {
   const { category, name, description, price, image } = product
 
   return (
-    <main className="min-h-screen bg-crema pb-sezione">
-      <div className="flex aspect-square items-center justify-center overflow-hidden bg-attesa">
+    <main className="flex h-dvh flex-col overflow-hidden bg-crema">
+      <div className="min-h-0 flex-1 overflow-hidden bg-attesa">
         {image ? (
           <img src={image} alt={name} className="h-full w-full object-cover" />
         ) : (
-          <span className="text-etichetta uppercase tracking-[0.28em] text-scuro/40">
-            In arrivo
-          </span>
+          <div className="flex h-full items-center justify-center">
+            <span className="text-etichetta uppercase tracking-[0.28em] text-scuro/40">
+              In arrivo
+            </span>
+          </div>
         )}
       </div>
 
-      <div className="flex flex-col gap-elemento px-gutter pt-blocco">
+      <div className="mx-auto flex w-full max-w-xl flex-shrink-0 flex-col gap-2 px-gutter py-elemento">
         {category && (
           <span className="text-etichetta uppercase tracking-[0.28em] text-scuro/40">
             {category}
@@ -44,7 +46,7 @@ function ProductDetail() {
 
         <h1 className="font-display text-titolo-medio text-scuro">{name}</h1>
 
-        <p className="text-corpo text-scuro/70">{description}</p>
+        <p className="line-clamp-3 text-corpo text-scuro/70">{description}</p>
 
         <p className="font-display text-cifra text-oro">
           {price.toLocaleString('it-IT', { style: 'currency', currency: 'EUR' })}

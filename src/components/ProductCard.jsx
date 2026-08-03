@@ -8,7 +8,7 @@ function ProductCard({ product }) {
       to={`/prodotto/${id}`}
       className="group flex flex-col border border-bordo bg-crema transition-colors hover:border-oro"
     >
-      <div className="flex aspect-square items-center justify-center overflow-hidden bg-attesa">
+      <div className="flex aspect-[4/3] items-center justify-center overflow-hidden bg-attesa">
         {image ? (
           <img src={image} alt={name} className="h-full w-full object-cover" />
         ) : (
