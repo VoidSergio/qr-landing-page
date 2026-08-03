@@ -3,9 +3,14 @@ import { products } from './data/products'
 
 function App() {
   return (
-    <main className="min-h-screen bg-gray-50 px-4 py-6">
-      <header className="mb-6">
-        <h1 className="text-xl font-semibold text-gray-900">Prodotti scansionati</h1>
+    <main className="min-h-screen bg-crema px-gutter py-sezione">
+      <header className="mb-blocco">
+        <span translate="no" className="text-etichetta uppercase tracking-[0.28em] text-oro">
+          Rilievo Contract
+        </span>
+        <h1 className="mt-2 font-display text-titolo-medio text-scuro">
+          Prodotti rilevati
+        </h1>
       </header>
 
       <ProductList products={products} />

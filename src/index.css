@@ -1,1 +1,77 @@
 @import "tailwindcss";
+
+@theme {
+  /* Colori — vedi SISTEMA-BRAND.md */
+  --color-scuro: #1c1c1a;
+  --color-crema: #f8f5ef;
+  --color-oro: #b8954e;
+  --color-spento: #55524a;
+  --color-bordo: #d9d2c4;
+  --color-attesa: #e5dfd2;
+
+  /* Caratteri */
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Misure del testo — fluide fra 390px e 1440px di finestra */
+  --text-monumentale: clamp(2.75rem, 0.99rem + 7.24vw, 7.5rem);
+  --text-monumentale--line-height: 0.9;
+  --text-monumentale--font-weight: 800;
+
+  --text-titolo: clamp(2.125rem, 1.2rem + 3.81vw, 4.625rem);
+  --text-titolo--line-height: 0.92;
+  --text-titolo--font-weight: 800;
+
+  --text-titolo-medio: clamp(1.875rem, 1.32rem + 2.29vw, 3.375rem);
+  --text-titolo-medio--line-height: 0.94;
+  --text-titolo-medio--font-weight: 800;
+
+  --text-cifra: clamp(2rem, 1.49rem + 2.1vw, 3.375rem);
+  --text-cifra--line-height: 0.98;
+  --text-cifra--font-weight: 700;
+
+  --text-dichiarazione: clamp(1.625rem, 1.09rem + 2.19vw, 3.0625rem);
+  --text-dichiarazione--line-height: 0.96;
+  --text-dichiarazione--font-weight: 700;
+
+  --text-dichiarazione-minore: clamp(1.25rem, 0.97rem + 1.14vw, 2rem);
+  --text-dichiarazione-minore--line-height: 0.98;
+  --text-dichiarazione-minore--font-weight: 700;
+
+  --text-sottotitolo: clamp(1.375rem, 1.26rem + 0.48vw, 1.6875rem);
+  --text-sottotitolo--line-height: 1.1;
+  --text-sottotitolo--font-weight: 600;
+
+  --text-voce: clamp(1.125rem, 1.03rem + 0.38vw, 1.375rem);
+  --text-voce--line-height: 1.2;
+  --text-voce--font-weight: 600;
+
+  --text-corpo: clamp(0.9375rem, 0.91rem + 0.1vw, 1rem);
+  --text-corpo--line-height: 1.72;
+  --text-corpo--font-weight: 400;
+
+  --text-corpo-minore: 0.875rem;
+  --text-corpo-minore--line-height: 1.6;
+  --text-corpo-minore--font-weight: 400;
+
+  --text-nota: clamp(0.75rem, 0.73rem + 0.1vw, 0.8125rem);
+  --text-nota--line-height: 1.5;
+  --text-nota--font-weight: 400;
+
+  --text-etichetta: clamp(0.625rem, 0.6rem + 0.1vw, 0.6875rem);
+  --text-etichetta--line-height: 1.4;
+  --text-etichetta--letter-spacing: 0.28em;
+  --text-etichetta--font-weight: 500;
+
+  /* Spazi — fluidi fra 390px e 1440px */
+  --spacing-gutter: clamp(1.25rem, 0.79rem + 1.9vw, 2.5rem);
+  --spacing-elemento: clamp(1.5rem, 1.06rem + 1.81vw, 2.6875rem);
+  --spacing-blocco: clamp(2.5rem, 1.76rem + 3.05vw, 4.5rem);
+  --spacing-sezione: clamp(4rem, 2.47rem + 6.29vw, 8.125rem);
+}
+
+@layer base {
+  body {
+    @apply bg-crema font-sans text-corpo text-scuro antialiased;
+  }
+}

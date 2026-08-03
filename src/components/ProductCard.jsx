@@ -1,24 +1,36 @@
+import { Link } from 'react-router-dom'
+
 function ProductCard({ product }) {
-  const { name, description, price, image } = product
+  const { id, category, name, description, price, image } = product
 
   return (
-    <div className="flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
-      <div className="flex aspect-square items-center justify-center bg-gray-100">
+    <Link
+      to={`/prodotto/${id}`}
+      className="group flex flex-col border border-bordo bg-crema transition-colors hover:border-oro"
+    >
+      <div className="flex aspect-square items-center justify-center overflow-hidden bg-attesa">
         {image ? (
           <img src={image} alt={name} className="h-full w-full object-cover" />
         ) : (
-          <span className="text-sm text-gray-400">Immagine non disponibile</span>
+          <span className="text-etichetta uppercase tracking-[0.28em] text-scuro/40">
+            In arrivo
+          </span>
         )}
       </div>
 
-      <div className="flex flex-1 flex-col gap-1 p-4">
-        <h3 className="font-medium text-gray-900">{name}</h3>
-        <p className="flex-1 text-sm text-gray-500">{description}</p>
-        <p className="mt-2 font-semibold text-gray-900">
+      <div className="flex flex-1 flex-col gap-2 p-elemento">
+        {category && (
+          <span className="text-etichetta uppercase tracking-[0.28em] text-scuro/40">
+            {category}
+          </span>
+        )}
+        <h3 className="font-display text-voce text-scuro">{name}</h3>
+        <p className="flex-1 text-corpo-minore text-scuro/70">{description}</p>
+        <p className="font-display text-voce text-oro">
           {price.toLocaleString('it-IT', { style: 'currency', currency: 'EUR' })}
         </p>
       </div>
-    </div>
+    </Link>
   )
 }
 
