@@ -71,6 +71,10 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-crema font-sans text-corpo text-scuro antialiased;
   }
