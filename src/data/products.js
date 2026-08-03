@@ -1,43 +1,77 @@
-import sedia from '../assets/oggetto-01-sedia.jpg'
-import poltrona from '../assets/oggetto-02-poltrona.jpg'
-import sospensione from '../assets/oggetto-03-sospensione.jpg'
-import libreria from '../assets/oggetto-04-libreria.jpg'
-
 export const products = [
   {
     id: 1,
-    category: 'Seduta',
-    name: 'Sedia',
-    description: 'Struttura in legno massello, scocca imbottita.',
-    price: 320,
-    // TODO: sostituire con le foto reali di questo prodotto.
-    images: [sedia, poltrona, sospensione, libreria],
+    category: 'Divano',
+    name: 'Divano Blogg',
+    description:
+      'Divano 3 posti in tessuto Marshmallow, seduta trapuntata, struttura in abete massiccio, piedini in faggio tinti nero.',
+    price: 4650,
+    priceNote: '+ consegna e montaggio',
+    images: [],
   },
   {
     id: 2,
-    category: 'Seduta',
-    name: 'Poltrona',
-    description: 'Imbottitura in schiuma differenziata, rivestimento sfoderabile.',
-    price: 890,
-    // TODO: sostituire con le foto reali di questo prodotto.
-    images: [poltrona, sedia, sospensione, libreria],
+    category: 'Decorazione',
+    name: 'Scultura Khal',
+    description: 'Figura decorativa in finitura cemento nero, design scultoreo.',
+    price: 662,
+    priceNote: '+ consegna e montaggio',
+    images: [],
   },
   {
     id: 3,
     category: 'Illuminazione',
-    name: 'Sospensione',
-    description: 'Diffusore in vetro soffiato, cavo regolabile.',
-    price: 415,
-    // TODO: sostituire con le foto reali di questo prodotto.
-    images: [sospensione, sedia, poltrona, libreria],
+    name: 'Lampada Eivis',
+    description:
+      'Lampada da terra in cartapesta lavorata a mano, ispirazione mediterranea, finitura beige/terracotta/nero.',
+    price: 707,
+    priceNote: '+ consegna e montaggio',
+    images: [],
   },
   {
     id: 4,
-    category: 'Contenitore',
-    name: 'Libreria',
-    description: 'Moduli componibili in rovere, montaggio a parete.',
-    price: 1240,
-    // TODO: sostituire con le foto reali di questo prodotto.
-    images: [libreria, sedia, poltrona, sospensione],
+    category: 'Tavolino',
+    name: 'Tavolino Carbon',
+    description:
+      'Base scultorea ispirata a forme organiche, piano dal design fluido.',
+    price: 1280,
+    priceNote: 'la coppia + consegna e montaggio',
+    images: [],
+  },
+  {
+    id: 5,
+    category: 'Divano',
+    name: 'Divano Dream',
+    description: 'Divano componibile, linee morbide e avvolgenti.',
+    price: 3470,
+    priceNote: '+ consegna e montaggio',
+    images: [],
+  },
+  {
+    id: 6,
+    category: 'Tavolino',
+    name: 'Tavolino Telfs',
+    description: 'Tavolino basso, forma compatta.',
+    price: 405,
+    priceNote: '+ consegna e montaggio',
+    images: [],
+  },
+  {
+    id: 7,
+    category: 'Decorazione',
+    name: 'Vaso Olive Big',
+    description: 'Vaso decorativo, formato grande.',
+    price: 807,
+    priceNote: '+ consegna e montaggio',
+    images: [],
+  },
+  {
+    id: 8,
+    category: 'Decorazione',
+    name: 'Vaso Olive Small',
+    description: 'Vaso decorativo, formato piccolo.',
+    price: 630,
+    priceNote: '+ consegna e montaggio',
+    images: [],
   },
 ]

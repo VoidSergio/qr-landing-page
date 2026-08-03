@@ -23,7 +23,11 @@ function ProductRow({ product }) {
       </div>
 
       <p className="flex-shrink-0 font-display text-voce text-oro">
-        {price.toLocaleString('it-IT', { style: 'currency', currency: 'EUR' })}
+        {price.toLocaleString('it-IT', {
+          style: 'currency',
+          currency: 'EUR',
+          maximumFractionDigits: 0,
+        })}
       </p>
     </Link>
   )

@@ -33,7 +33,7 @@ function ProductDetail() {
     )
   }
 
-  const { category, name, description, price, images } = product
+  const { category, name, description, price, priceNote, images } = product
 
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
     `Ciao, vorrei informazioni su "${name}".`,
@@ -57,9 +57,16 @@ function ProductDetail() {
 
           <p className="line-clamp-3 text-corpo text-scuro/70">{description}</p>
 
-          <p className="font-display text-cifra text-oro">
-            {price.toLocaleString('it-IT', { style: 'currency', currency: 'EUR' })}
-          </p>
+          <div>
+            <p className="font-display text-cifra text-oro">
+              {price.toLocaleString('it-IT', {
+                style: 'currency',
+                currency: 'EUR',
+                maximumFractionDigits: 0,
+              })}
+            </p>
+            {priceNote && <p className="text-nota text-scuro/40">{priceNote}</p>}
+          </div>
 
           <a
             href="#acquisto"

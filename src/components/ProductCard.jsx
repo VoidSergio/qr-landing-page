@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
 function ProductCard({ product }) {
-  const { id, category, name, description, price, images } = product
+  const { id, category, name, description, price, priceNote, images } = product
   const image = images?.[0]
 
   return (
@@ -27,9 +27,16 @@ function ProductCard({ product }) {
         )}
         <h3 className="font-display text-voce text-scuro">{name}</h3>
         <p className="flex-1 text-corpo-minore text-scuro/70">{description}</p>
-        <p className="font-display text-voce text-oro">
-          {price.toLocaleString('it-IT', { style: 'currency', currency: 'EUR' })}
-        </p>
+        <div>
+          <p className="font-display text-voce text-oro">
+            {price.toLocaleString('it-IT', {
+              style: 'currency',
+              currency: 'EUR',
+              maximumFractionDigits: 0,
+            })}
+          </p>
+          {priceNote && <p className="text-nota text-scuro/40">{priceNote}</p>}
+        </div>
       </div>
     </Link>
   )
