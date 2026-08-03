@@ -2,8 +2,7 @@ import { Link, useParams } from 'react-router-dom'
 import { products } from '../data/products'
 import ProductGallery from './ProductGallery'
 
-// Segnaposto: da sostituire con il numero WhatsApp dell'operatore locale.
-const WHATSAPP_NUMBER = '390000000000'
+const WHATSAPP_NUMBER = '393497265203'
 
 function WhatsAppIcon() {
   return (
@@ -36,7 +35,7 @@ function ProductDetail() {
   const { category, name, description, price, priceNote, images } = product
 
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-    `Ciao, vorrei informazioni su "${name}".`,
+    `Ciao, sono interessato a "${name}". Potreste darmi maggiori informazioni?`,
   )}`
 
   return (
@@ -77,9 +76,10 @@ function ProductDetail() {
 
           <Link
             to="/"
-            className="mt-1 text-etichetta uppercase tracking-[0.28em] text-scuro/40 transition-colors hover:text-oro"
+            className="mt-1 inline-flex w-fit items-center gap-2 text-etichetta uppercase tracking-[0.28em] text-scuro/40 transition-colors hover:text-oro"
           >
-            Tutti i prodotti rilevati
+            <span aria-hidden="true">←</span>
+            Sfoglia il resto della collezione
           </Link>
         </div>
       </main>
