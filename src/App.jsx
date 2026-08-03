@@ -1,7 +1,9 @@
+import { Route, Routes } from 'react-router-dom'
 import ProductList from './components/ProductList'
+import ProductDetail from './components/ProductDetail'
 import { products } from './data/products'
 
-function App() {
+function Home() {
   return (
     <main className="min-h-screen bg-crema px-gutter py-sezione">
       <header className="mb-blocco">
@@ -15,6 +17,15 @@ function App() {
 
       <ProductList products={products} />
     </main>
+  )
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/prodotto/:id" element={<ProductDetail />} />
+    </Routes>
   )
 }
 
