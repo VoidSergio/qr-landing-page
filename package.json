@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "author": "Sergio Corrias (VoidSergio)",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
