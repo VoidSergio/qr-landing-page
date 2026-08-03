@@ -3,8 +3,7 @@ import ProductList from './ProductList'
 import ViewToggle from './ViewToggle'
 import { products } from '../data/products'
 
-// Segnaposto: da sostituire con il link definitivo al sito di Rilievo.
-const SCOPRI_RILIEVO_URL = '#'
+const SCOPRI_RILIEVO_URL = 'https://rilievocontract.it'
 
 function Home() {
   const [view, setView] = useState('griglia')
