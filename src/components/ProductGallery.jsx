@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
+import ZoomableImage from './ZoomableImage'
 
 function ProductGallery({ images, name }) {
   const [active, setActive] = useState(0)
   const [lightboxOpen, setLightboxOpen] = useState(false)
+  const [zoomed, setZoomed] = useState(false)
   const trackRef = useRef(null)
   const lightboxTrackRef = useRef(null)
   const rafRef = useRef(null)
@@ -129,23 +131,28 @@ function ProductGallery({ images, name }) {
           <div
             ref={lightboxTrackRef}
             onScroll={handleLightboxScroll}
-            className="no-scrollbar flex h-full w-full snap-x snap-mandatory overflow-x-auto overscroll-x-contain scroll-smooth [-webkit-overflow-scrolling:touch]"
+            className={`no-scrollbar flex h-full w-full snap-x snap-mandatory overflow-x-auto overscroll-x-contain scroll-smooth [-webkit-overflow-scrolling:touch] ${
+              zoomed ? '!snap-none !overflow-hidden' : ''
+            }`}
           >
             {images.map((src, index) => (
               <div key={src} className="flex h-full w-full flex-none snap-center items-center justify-center px-gutter">
-                <img
+                <ZoomableImage
                   src={src}
                   alt={`${name} — foto ${index + 1} di ${images.length}`}
-                  loading="eager"
-                  decoding="async"
-                  className="max-h-full max-w-full object-contain [backface-visibility:hidden] [transform:translateZ(0)]"
+                  isActive={lightboxOpen && index === active}
+                  onZoomChange={index === active ? setZoomed : undefined}
                 />
               </div>
             ))}
           </div>
 
           {images.length > 1 && (
-            <div className="pointer-events-none absolute inset-x-0 bottom-6 flex items-center justify-center gap-1.5 px-gutter">
+            <div
+              className={`pointer-events-none absolute inset-x-0 bottom-6 flex items-center justify-center gap-1.5 px-gutter transition-opacity duration-200 ${
+                zoomed ? 'opacity-0' : 'opacity-100'
+              }`}
+            >
               {images.map((src, index) => (
                 <span
                   key={src}
