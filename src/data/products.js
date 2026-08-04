@@ -3,7 +3,6 @@ import blogg2 from '../assets/Prodotti/Blogg 2.jpg'
 import blogg3 from '../assets/Prodotti/Blogg 3.jpg'
 import blogg4 from '../assets/Prodotti/Blogg 4.jpg'
 
-import khal1 from '../assets/Prodotti/Scultura Khal.jpg'
 import khal1b from '../assets/Prodotti/Scultura Khal 1.jpg'
 import khal2 from '../assets/Prodotti/Scultura Khal 2.jpg'
 import khal3 from '../assets/Prodotti/Scultura Khal 3.jpg'
@@ -56,6 +55,13 @@ export const products = [
     price: 4650,
     priceNote: '+ consegna e montaggio',
     images: [blogg1, blogg2, blogg3, blogg4],
+    en: {
+      category: 'Sofa',
+      name: 'Blogg Sofa',
+      description:
+        '3-seat sofa in Marshmallow fabric, quilted seat, solid fir frame, black-stained beech feet.',
+      priceNote: '+ delivery and assembly',
+    },
   },
   {
     id: 2,
@@ -64,7 +70,13 @@ export const products = [
     description: 'Figura decorativa in finitura cemento nero, design scultoreo.',
     price: 662,
     priceNote: '+ consegna e montaggio',
-    images: [khal1, khal1b, khal2, khal3, khal4],
+    images: [khal1b, khal2, khal3, khal4],
+    en: {
+      category: 'Decor',
+      name: 'Khal Sculpture',
+      description: 'Decorative figure in black cement finish, sculptural design.',
+      priceNote: '+ delivery and assembly',
+    },
   },
   {
     id: 3,
@@ -75,6 +87,13 @@ export const products = [
     price: 707,
     priceNote: '+ consegna e montaggio',
     images: [elvis1],
+    en: {
+      category: 'Lighting',
+      name: 'Elvis Lamp',
+      description:
+        'Handcrafted papier-mâché floor lamp, Mediterranean inspiration, beige/terracotta/black finish.',
+      priceNote: '+ delivery and assembly',
+    },
   },
   {
     id: 4,
@@ -85,6 +104,12 @@ export const products = [
     price: 1280,
     priceNote: 'la coppia + consegna e montaggio',
     images: [carbon1, carbon2, carbon3],
+    en: {
+      category: 'Side table',
+      name: 'Carbon Side Table',
+      description: 'Sculptural base inspired by organic forms, fluid-design top.',
+      priceNote: 'the pair + delivery and assembly',
+    },
   },
   {
     id: 5,
@@ -94,6 +119,12 @@ export const products = [
     price: 3470,
     priceNote: '+ consegna e montaggio',
     images: [dream1, dream2],
+    en: {
+      category: 'Sofa',
+      name: 'Dream Sofa',
+      description: 'Modular sofa, soft and enveloping lines.',
+      priceNote: '+ delivery and assembly',
+    },
   },
   {
     id: 6,
@@ -103,6 +134,12 @@ export const products = [
     price: 405,
     priceNote: '+ consegna e montaggio',
     images: [telfs1, telfs2],
+    en: {
+      category: 'Side table',
+      name: 'Telfs Side Table',
+      description: 'Low side table, compact form.',
+      priceNote: '+ delivery and assembly',
+    },
   },
   {
     id: 7,
@@ -112,6 +149,12 @@ export const products = [
     price: 807,
     priceNote: '+ consegna e montaggio',
     images: [oliveBig],
+    en: {
+      category: 'Decor',
+      name: 'Olive Vase Big',
+      description: 'Decorative vase, large size.',
+      priceNote: '+ delivery and assembly',
+    },
   },
   {
     id: 8,
@@ -121,6 +164,12 @@ export const products = [
     price: 630,
     priceNote: '+ consegna e montaggio',
     images: [oliveSmall],
+    en: {
+      category: 'Decor',
+      name: 'Olive Vase Small',
+      description: 'Decorative vase, small size.',
+      priceNote: '+ delivery and assembly',
+    },
   },
   {
     id: 9,
@@ -130,6 +179,12 @@ export const products = [
     price: 224,
     priceNote: '+ consegna',
     images: [yat30_1, yat30_2],
+    en: {
+      category: 'Decor',
+      name: 'YAT Cream Vase Ø30x52',
+      description: 'Vase in a beige tone, ideal for flowers or artificial branches.',
+      priceNote: '+ delivery',
+    },
   },
   {
     id: 10,
@@ -140,6 +195,13 @@ export const products = [
     price: 638,
     priceNote: '+ consegna',
     images: [yat52_1, yat52_2, yat52_3],
+    en: {
+      category: 'Decor',
+      name: 'YAT Cream Vase Ø52x81',
+      description:
+        'Vase in a beige tone, large size, ideal for flowers or artificial branches.',
+      priceNote: '+ delivery',
+    },
   },
   {
     id: 11,
@@ -149,6 +211,12 @@ export const products = [
     price: 764,
     priceNote: '+ consegna',
     images: [julia1, julia2],
+    en: {
+      category: 'Armchair',
+      name: 'Julia Armchair',
+      description: 'Outdoor armchair in rope and green galvanised steel.',
+      priceNote: '+ delivery',
+    },
   },
   {
     id: 12,
@@ -158,15 +226,27 @@ export const products = [
     price: 1052,
     priceNote: '+ consegna',
     images: [perla1],
+    en: {
+      category: 'Side table',
+      name: 'Perla Side Table',
+      description: 'Metal and marble side table.',
+      priceNote: '+ delivery',
+    },
   },
   {
     id: 13,
     category: 'Illuminazione',
     name: 'Lampada Cassel',
     description: 'Lampada da tavolo in bronzo anticato, base in metallo.',
-    price: 224,
+    price: 307,
     priceNote: '+ consegna',
     images: [cassel1, cassel2],
+    en: {
+      category: 'Lighting',
+      name: 'Cassel Lamp',
+      description: 'Table lamp in antiqued bronze, metal base.',
+      priceNote: '+ delivery',
+    },
   },
   {
     id: 14,
@@ -176,6 +256,12 @@ export const products = [
     price: 312,
     priceNote: '+ consegna',
     images: [poltroncinaDream0, poltroncinaDream1, poltroncinaDream2, poltroncinaDream3],
+    en: {
+      category: 'Armchair',
+      name: 'Dream Armchair',
+      description: 'Armchair with a soft, welcoming design.',
+      priceNote: '+ delivery',
+    },
   },
   {
     id: 15,
@@ -186,5 +272,12 @@ export const products = [
     price: 3690,
     priceNote: '+ consegna e montaggio',
     images: [buffetRetro1],
+    en: {
+      category: 'Sideboard',
+      name: 'Retrò Sideboard',
+      description:
+        'Retrò sideboard in black lacquered wood with a solid wood top. Dimensions 160 x 48 x 88 cm.',
+      priceNote: '+ delivery and assembly',
+    },
   },
 ]
