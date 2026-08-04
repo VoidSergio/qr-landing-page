@@ -11,7 +11,7 @@ function ProductCard({ product }) {
     >
       <div className="flex aspect-[4/3] items-center justify-center overflow-hidden bg-attesa">
         {image ? (
-          <img src={image} alt={name} className="h-full w-full object-cover" />
+          <img src={image} alt={name} className="h-full w-full object-contain" />
         ) : (
           <span className="text-etichetta uppercase tracking-[0.28em] text-scuro/40">
             In arrivo
