@@ -9,7 +9,7 @@ function ProductRow({ product }) {
       to={`/prodotto/${id}`}
       className="flex items-center gap-elemento border-b border-bordo py-3 transition-colors hover:border-oro"
     >
-      <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center overflow-hidden bg-attesa">
+      <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center overflow-hidden bg-attesa p-1.5">
         {image && <img src={image} alt={name} className="h-full w-full object-contain" />}
       </div>
 
