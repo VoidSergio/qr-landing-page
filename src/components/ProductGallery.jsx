@@ -1,8 +1,30 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 function ProductGallery({ images, name }) {
   const [active, setActive] = useState(0)
+  const [lightboxOpen, setLightboxOpen] = useState(false)
   const trackRef = useRef(null)
+  const lightboxTrackRef = useRef(null)
+
+  useEffect(() => {
+    if (!lightboxOpen) return
+
+    const el = lightboxTrackRef.current
+    if (el) el.scrollTo({ left: active * el.clientWidth })
+
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') setLightboxOpen(false)
+    }
+    window.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [lightboxOpen, active])
 
   if (images.length === 0) {
     return (
@@ -16,6 +38,12 @@ function ProductGallery({ images, name }) {
 
   const handleScroll = () => {
     const el = trackRef.current
+    if (!el) return
+    setActive(Math.round(el.scrollLeft / el.clientWidth))
+  }
+
+  const handleLightboxScroll = () => {
+    const el = lightboxTrackRef.current
     if (!el) return
     setActive(Math.round(el.scrollLeft / el.clientWidth))
   }
@@ -34,12 +62,19 @@ function ProductGallery({ images, name }) {
         className="no-scrollbar flex h-full w-full snap-x snap-mandatory overflow-x-auto scroll-smooth"
       >
         {images.map((src, index) => (
-          <img
+          <button
             key={src}
-            src={src}
-            alt={`${name} — foto ${index + 1} di ${images.length}`}
-            className="h-full w-full flex-none snap-center object-contain"
-          />
+            type="button"
+            onClick={() => setLightboxOpen(true)}
+            aria-label={`Apri a schermo intero — foto ${index + 1} di ${images.length}`}
+            className="h-full w-full flex-none snap-center"
+          >
+            <img
+              src={src}
+              alt={`${name} — foto ${index + 1} di ${images.length}`}
+              className="h-full w-full object-contain"
+            />
+          </button>
         ))}
       </div>
 
@@ -56,6 +91,50 @@ function ProductGallery({ images, name }) {
               }`}
             />
           ))}
+        </div>
+      )}
+
+      {lightboxOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-scuro/95">
+          <button
+            type="button"
+            onClick={() => setLightboxOpen(false)}
+            aria-label="Chiudi"
+            className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center text-crema/70 transition-colors hover:text-oro"
+          >
+            <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <path d="M6 6l12 12M18 6 6 18" strokeLinecap="round" />
+            </svg>
+          </button>
+
+          <div
+            ref={lightboxTrackRef}
+            onScroll={handleLightboxScroll}
+            className="no-scrollbar flex h-full w-full snap-x snap-mandatory overflow-x-auto scroll-smooth"
+          >
+            {images.map((src, index) => (
+              <div key={src} className="flex h-full w-full flex-none snap-center items-center justify-center px-gutter">
+                <img
+                  src={src}
+                  alt={`${name} — foto ${index + 1} di ${images.length}`}
+                  className="max-h-full max-w-full object-contain"
+                />
+              </div>
+            ))}
+          </div>
+
+          {images.length > 1 && (
+            <div className="pointer-events-none absolute inset-x-0 bottom-6 flex items-center justify-center gap-1.5 px-gutter">
+              {images.map((src, index) => (
+                <span
+                  key={src}
+                  className={`h-[3px] max-w-8 flex-1 transition-colors ${
+                    index === active ? 'bg-oro' : 'bg-crema/40'
+                  }`}
+                />
+              ))}
+            </div>
+          )}
         </div>
       )}
     </div>
