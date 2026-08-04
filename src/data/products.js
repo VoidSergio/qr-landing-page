@@ -1,50 +1,50 @@
-import blogg1 from '../assets/Prodotti/Blogg 1.png'
-import blogg2 from '../assets/Prodotti/Blogg 2.png'
-import blogg3 from '../assets/Prodotti/Blogg 3.png'
-import blogg4 from '../assets/Prodotti/Blogg 4.png'
+import blogg1 from '../assets/Prodotti/Blogg 1.jpg'
+import blogg2 from '../assets/Prodotti/Blogg 2.jpg'
+import blogg3 from '../assets/Prodotti/Blogg 3.jpg'
+import blogg4 from '../assets/Prodotti/Blogg 4.jpg'
 
-import khal1 from '../assets/Prodotti/Scultura Khal.png'
-import khal1b from '../assets/Prodotti/Scultura Khal 1.png'
-import khal2 from '../assets/Prodotti/Scultura Khal 2.png'
-import khal3 from '../assets/Prodotti/Scultura Khal 3.png'
-import khal4 from '../assets/Prodotti/Scultura Khal 4.png'
+import khal1 from '../assets/Prodotti/Scultura Khal.jpg'
+import khal1b from '../assets/Prodotti/Scultura Khal 1.jpg'
+import khal2 from '../assets/Prodotti/Scultura Khal 2.jpg'
+import khal3 from '../assets/Prodotti/Scultura Khal 3.jpg'
+import khal4 from '../assets/Prodotti/Scultura Khal 4.jpg'
 
-import eivis1 from '../assets/Prodotti/Elvis 1.png'
+import eivis1 from '../assets/Prodotti/Elvis 1.jpg'
 
-import carbon1 from '../assets/Prodotti/Coffee table Carbon1.png'
-import carbon2 from '../assets/Prodotti/Coffee table Carbon2.png'
-import carbon3 from '../assets/Prodotti/Coffee table Carbon3.png'
+import carbon1 from '../assets/Prodotti/Coffee table Carbon1.jpg'
+import carbon2 from '../assets/Prodotti/Coffee table Carbon2.jpg'
+import carbon3 from '../assets/Prodotti/Coffee table Carbon3.jpg'
 
-import dream1 from '../assets/Prodotti/Dream divano 1.png'
-import dream2 from '../assets/Prodotti/Divano Dream 2.png'
+import dream1 from '../assets/Prodotti/Dream divano 1.jpg'
+import dream2 from '../assets/Prodotti/Divano Dream 2.jpg'
 
-import telfs1 from '../assets/Prodotti/Tavolino Telfs.png'
-import telfs2 from '../assets/Prodotti/Tavolino Telfs 2.png'
+import telfs1 from '../assets/Prodotti/Tavolino Telfs.jpg'
+import telfs2 from '../assets/Prodotti/Tavolino Telfs 2.jpg'
 
-import oliveBig from '../assets/Prodotti/Vaso Olive big.png'
-import oliveSmall from '../assets/Prodotti/Vaso Olive small.png'
+import oliveBig from '../assets/Prodotti/Vaso Olive big.jpg'
+import oliveSmall from '../assets/Prodotti/Vaso Olive small.jpg'
 
-import yat30_1 from '../assets/Prodotti/Vaso YAT  cream Ø30x52 cm.png'
-import yat30_2 from '../assets/Prodotti/Vaso YAT 2  cream Ø30x52 cm.png'
+import yat30_1 from '../assets/Prodotti/Vaso YAT  cream Ø30x52 cm.jpg'
+import yat30_2 from '../assets/Prodotti/Vaso YAT 2  cream Ø30x52 cm.jpg'
 
-import yat52_1 from '../assets/Prodotti/Vaso YAT cream Ø52x81 cm.png'
-import yat52_2 from '../assets/Prodotti/Vaso YAT 2 cream Ø52x81 cm.png'
-import yat52_3 from '../assets/Prodotti/Vaso YAT 3 cream Ø52x81 cm.png'
+import yat52_1 from '../assets/Prodotti/Vaso YAT cream Ø52x81 cm.jpg'
+import yat52_2 from '../assets/Prodotti/Vaso YAT 2 cream Ø52x81 cm.jpg'
+import yat52_3 from '../assets/Prodotti/Vaso YAT 3 cream Ø52x81 cm.jpg'
 
-import julia1 from '../assets/Prodotti/Seduta da esterno Julia.png'
-import julia2 from '../assets/Prodotti/Seduta da esterno Julia 2.png'
+import julia1 from '../assets/Prodotti/Seduta da esterno Julia.jpg'
+import julia2 from '../assets/Prodotti/Seduta da esterno Julia 2.jpg'
 
-import perla1 from '../assets/Prodotti/Coffe table Perla.png'
+import perla1 from '../assets/Prodotti/Coffe table Perla.jpg'
 
-import cassel1 from '../assets/Prodotti/Lampada CASSEL.png'
-import cassel2 from '../assets/Prodotti/Lampada CASSEL 2.png'
+import cassel1 from '../assets/Prodotti/Lampada CASSEL.jpg'
+import cassel2 from '../assets/Prodotti/Lampada CASSEL 2.jpg'
 
-import poltroncinaDream0 from '../assets/Prodotti/Poltroncina Dream 0.png'
-import poltroncinaDream1 from '../assets/Prodotti/Poltroncina Dream.png'
-import poltroncinaDream2 from '../assets/Prodotti/Poltroncina Dream 2.png'
-import poltroncinaDream3 from '../assets/Prodotti/Poltroncina Dream 3.png'
+import poltroncinaDream0 from '../assets/Prodotti/Poltroncina Dream 0.jpg'
+import poltroncinaDream1 from '../assets/Prodotti/Poltroncina Dream.jpg'
+import poltroncinaDream2 from '../assets/Prodotti/Poltroncina Dream 2.jpg'
+import poltroncinaDream3 from '../assets/Prodotti/Poltroncina Dream 3.jpg'
 
-import buffetRetro1 from '../assets/Prodotti/Buffet retro.png'
+import buffetRetro1 from '../assets/Prodotti/Buffet retro.jpg'
 
 export const products = [
   {
