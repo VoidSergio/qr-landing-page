@@ -9,7 +9,7 @@ import khal2 from '../assets/Prodotti/Scultura Khal 2.jpg'
 import khal3 from '../assets/Prodotti/Scultura Khal 3.jpg'
 import khal4 from '../assets/Prodotti/Scultura Khal 4.jpg'
 
-import eivis1 from '../assets/Prodotti/Elvis 1.jpg'
+import elvis1 from '../assets/Prodotti/Elvis 1.jpg'
 
 import carbon1 from '../assets/Prodotti/Coffee table Carbon1.jpg'
 import carbon2 from '../assets/Prodotti/Coffee table Carbon2.jpg'
@@ -69,12 +69,12 @@ export const products = [
   {
     id: 3,
     category: 'Illuminazione',
-    name: 'Lampada Eivis',
+    name: 'Lampada Elvis',
     description:
       'Lampada da terra in cartapesta lavorata a mano, ispirazione mediterranea, finitura beige/terracotta/nero.',
     price: 707,
     priceNote: '+ consegna e montaggio',
-    images: [eivis1],
+    images: [elvis1],
   },
   {
     id: 4,
