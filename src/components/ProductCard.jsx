@@ -1,7 +1,14 @@
 import { Link } from 'react-router-dom'
+import { useLanguage } from '../i18n/languageContext'
+import { localizeProduct } from '../data/localizeProduct'
+import { formatPrice } from '../utils/formatPrice'
 
 function ProductCard({ product }) {
-  const { id, category, name, description, price, priceNote, images } = product
+  const { language, t } = useLanguage()
+  const { id, category, name, description, price, priceNote, images } = localizeProduct(
+    product,
+    language,
+  )
   const image = images?.[0]
 
   return (
@@ -14,7 +21,7 @@ function ProductCard({ product }) {
           <img src={image} alt={name} className="h-full w-full object-contain" />
         ) : (
           <span className="text-etichetta uppercase tracking-[0.28em] text-scuro/40">
-            In arrivo
+            {t('comingSoon')}
           </span>
         )}
       </div>
@@ -28,13 +35,7 @@ function ProductCard({ product }) {
         <h3 className="font-display text-voce text-scuro">{name}</h3>
         <p className="flex-1 text-corpo-minore text-scuro/70">{description}</p>
         <div>
-          <p className="font-display text-voce text-oro">
-            {price.toLocaleString('it-IT', {
-              style: 'currency',
-              currency: 'EUR',
-              maximumFractionDigits: 0,
-            })}
-          </p>
+          <p className="font-display text-voce text-oro">{formatPrice(price, language)}</p>
           {priceNote && <p className="text-nota text-scuro/40">{priceNote}</p>}
         </div>
       </div>

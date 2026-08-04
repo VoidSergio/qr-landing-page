@@ -1,6 +1,10 @@
 import { Link, useParams } from 'react-router-dom'
 import { products } from '../data/products'
+import { localizeProduct } from '../data/localizeProduct'
+import { formatPrice } from '../utils/formatPrice'
+import { useLanguage } from '../i18n/languageContext'
 import ProductGallery from './ProductGallery'
+import LanguageToggle from './LanguageToggle'
 
 const WHATSAPP_NUMBER = '393497265203'
 
@@ -14,34 +18,34 @@ function WhatsAppIcon() {
 
 function ProductDetail() {
   const { id } = useParams()
-  const product = products.find((item) => String(item.id) === id)
+  const { language, t } = useLanguage()
+  const rawProduct = products.find((item) => String(item.id) === id)
 
-  if (!product) {
+  if (!rawProduct) {
     return (
       <main className="flex h-dvh flex-col items-center justify-center gap-elemento bg-crema px-gutter text-center">
-        <p className="font-display text-titolo-medio text-scuro">
-          Prodotto non trovato
-        </p>
-        <Link
-          to="/"
-          className="text-etichetta uppercase tracking-[0.28em] text-oro"
-        >
-          Torna all'elenco
+        <p className="font-display text-titolo-medio text-scuro">{t('productNotFound')}</p>
+        <Link to="/" className="text-etichetta uppercase tracking-[0.28em] text-oro">
+          {t('backToList')}
         </Link>
       </main>
     )
   }
 
-  const { category, name, description, price, priceNote, images } = product
+  const { category, name, description, price, priceNote, images } = localizeProduct(
+    rawProduct,
+    language,
+  )
 
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-    `Ciao, sono interessato a "${name}". Potreste darmi maggiori informazioni?`,
+    t('whatsappMessage', name),
   )}`
 
   return (
     <div className="bg-crema">
       <main className="flex h-dvh flex-col overflow-hidden">
-        <div className="min-h-0 flex-1 overflow-hidden bg-attesa">
+        <div className="relative min-h-0 flex-1 overflow-hidden bg-attesa">
+          <LanguageToggle className="absolute left-4 top-4 z-10 bg-crema" />
           <ProductGallery images={images ?? []} name={name} />
         </div>
 
@@ -57,13 +61,7 @@ function ProductDetail() {
           <p className="line-clamp-3 text-corpo text-scuro/70">{description}</p>
 
           <div>
-            <p className="font-display text-cifra text-oro">
-              {price.toLocaleString('it-IT', {
-                style: 'currency',
-                currency: 'EUR',
-                maximumFractionDigits: 0,
-              })}
-            </p>
+            <p className="font-display text-cifra text-oro">{formatPrice(price, language)}</p>
             {priceNote && <p className="text-nota text-scuro/40">{priceNote}</p>}
           </div>
 
@@ -71,7 +69,7 @@ function ProductDetail() {
             href="#acquisto"
             className="mt-1 inline-flex w-fit border border-bordo px-4 py-2 text-etichetta uppercase tracking-[0.28em] text-scuro transition-colors duration-500 hover:border-oro hover:bg-oro"
           >
-            Informazioni sull'acquisto
+            {t('purchaseInfo')}
           </a>
 
           <Link
@@ -79,7 +77,7 @@ function ProductDetail() {
             className="mt-1 inline-flex w-fit items-center gap-2 text-etichetta uppercase tracking-[0.28em] text-scuro/40 transition-colors hover:text-oro"
           >
             <span aria-hidden="true">←</span>
-            Sfoglia il resto della collezione
+            {t('browseCollection')}
           </Link>
         </div>
       </main>
@@ -88,17 +86,10 @@ function ProductDetail() {
         <div className="mx-auto flex w-full max-w-xl flex-col items-start gap-elemento text-left">
           <div className="flex flex-col gap-2">
             <span className="text-etichetta uppercase tracking-[0.28em] text-oro">
-              Informazioni sull'acquisto
+              {t('purchaseInfo')}
             </span>
-            <h2 className="font-display text-sottotitolo text-scuro">
-              Interessato a questo pezzo?
-            </h2>
-            <p className="text-corpo text-scuro/70">
-              Il nostro operatore in loco conosce ogni dettaglio di questo
-              prodotto — materiali, disponibilità, tempi e modalità
-              d'acquisto. Scrivici su WhatsApp: ti rispondiamo il prima
-              possibile.
-            </p>
+            <h2 className="font-display text-sottotitolo text-scuro">{t('interestedTitle')}</h2>
+            <p className="text-corpo text-scuro/70">{t('interestedBody')}</p>
           </div>
 
           <a
@@ -108,7 +99,7 @@ function ProductDetail() {
             className="inline-flex items-center gap-2 border border-scuro px-6 py-3 text-etichetta uppercase tracking-[0.28em] text-scuro transition-colors duration-500 hover:border-oro hover:bg-oro"
           >
             <WhatsAppIcon />
-            Scrivici su WhatsApp
+            {t('whatsappCta')}
           </a>
         </div>
       </section>

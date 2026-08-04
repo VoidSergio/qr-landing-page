@@ -1,4 +1,8 @@
+import { useLanguage } from '../i18n/languageContext'
+
 function ViewToggle({ view, onChange }) {
+  const { t } = useLanguage()
+
   return (
     <div className="inline-flex border border-bordo">
       <button
@@ -9,7 +13,7 @@ function ViewToggle({ view, onChange }) {
           view === 'griglia' ? 'bg-scuro text-crema' : 'text-scuro/40'
         }`}
       >
-        Griglia
+        {t('viewGrid')}
       </button>
       <button
         type="button"
@@ -19,7 +23,7 @@ function ViewToggle({ view, onChange }) {
           view === 'lista' ? 'bg-scuro text-crema' : 'text-scuro/40'
         }`}
       >
-        Lista
+        {t('viewList')}
       </button>
     </div>
   )

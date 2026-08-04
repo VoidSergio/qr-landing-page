@@ -1,7 +1,11 @@
 import { Link } from 'react-router-dom'
+import { useLanguage } from '../i18n/languageContext'
+import { localizeProduct } from '../data/localizeProduct'
+import { formatPrice } from '../utils/formatPrice'
 
 function ProductRow({ product }) {
-  const { id, category, name, price, images } = product
+  const { language } = useLanguage()
+  const { id, category, name, price, images } = localizeProduct(product, language)
   const image = images?.[0]
 
   return (
@@ -23,11 +27,7 @@ function ProductRow({ product }) {
       </div>
 
       <p className="flex-shrink-0 font-display text-voce text-oro">
-        {price.toLocaleString('it-IT', {
-          style: 'currency',
-          currency: 'EUR',
-          maximumFractionDigits: 0,
-        })}
+        {formatPrice(price, language)}
       </p>
     </Link>
   )
