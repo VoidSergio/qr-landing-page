@@ -5,6 +5,7 @@ function ProductGallery({ images, name }) {
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const trackRef = useRef(null)
   const lightboxTrackRef = useRef(null)
+  const rafRef = useRef(null)
 
   useEffect(() => {
     if (!lightboxOpen) return
@@ -24,7 +25,14 @@ function ProductGallery({ images, name }) {
       document.body.style.overflow = previousOverflow
       window.removeEventListener('keydown', handleKeyDown)
     }
-  }, [lightboxOpen, active])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lightboxOpen])
+
+  useEffect(() => {
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current)
+    }
+  }, [])
 
   if (images.length === 0) {
     return (
@@ -36,16 +44,25 @@ function ProductGallery({ images, name }) {
     )
   }
 
+  const scheduleActiveUpdate = (el) => {
+    if (rafRef.current) cancelAnimationFrame(rafRef.current)
+    rafRef.current = requestAnimationFrame(() => {
+      rafRef.current = null
+      const index = Math.round(el.scrollLeft / el.clientWidth)
+      setActive((current) => (current === index ? current : index))
+    })
+  }
+
   const handleScroll = () => {
     const el = trackRef.current
     if (!el) return
-    setActive(Math.round(el.scrollLeft / el.clientWidth))
+    scheduleActiveUpdate(el)
   }
 
   const handleLightboxScroll = () => {
     const el = lightboxTrackRef.current
     if (!el) return
-    setActive(Math.round(el.scrollLeft / el.clientWidth))
+    scheduleActiveUpdate(el)
   }
 
   const goTo = (index) => {
@@ -59,7 +76,7 @@ function ProductGallery({ images, name }) {
       <div
         ref={trackRef}
         onScroll={handleScroll}
-        className="no-scrollbar flex h-full w-full snap-x snap-mandatory overflow-x-auto scroll-smooth"
+        className="no-scrollbar flex h-full w-full snap-x snap-mandatory overflow-x-auto overscroll-x-contain scroll-smooth [-webkit-overflow-scrolling:touch]"
       >
         {images.map((src, index) => (
           <button
@@ -72,7 +89,9 @@ function ProductGallery({ images, name }) {
             <img
               src={src}
               alt={`${name} — foto ${index + 1} di ${images.length}`}
-              className="h-full w-full object-contain"
+              loading="eager"
+              decoding="async"
+              className="h-full w-full object-contain [backface-visibility:hidden] [transform:translateZ(0)]"
             />
           </button>
         ))}
@@ -110,14 +129,16 @@ function ProductGallery({ images, name }) {
           <div
             ref={lightboxTrackRef}
             onScroll={handleLightboxScroll}
-            className="no-scrollbar flex h-full w-full snap-x snap-mandatory overflow-x-auto scroll-smooth"
+            className="no-scrollbar flex h-full w-full snap-x snap-mandatory overflow-x-auto overscroll-x-contain scroll-smooth [-webkit-overflow-scrolling:touch]"
           >
             {images.map((src, index) => (
               <div key={src} className="flex h-full w-full flex-none snap-center items-center justify-center px-gutter">
                 <img
                   src={src}
                   alt={`${name} — foto ${index + 1} di ${images.length}`}
-                  className="max-h-full max-w-full object-contain"
+                  loading="eager"
+                  decoding="async"
+                  className="max-h-full max-w-full object-contain [backface-visibility:hidden] [transform:translateZ(0)]"
                 />
               </div>
             ))}
