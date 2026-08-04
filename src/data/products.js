@@ -42,6 +42,8 @@ import poltroncinaDream1 from '../assets/Prodotti/Poltroncina Dream.jpg'
 import poltroncinaDream2 from '../assets/Prodotti/Poltroncina Dream 2.jpg'
 import poltroncinaDream3 from '../assets/Prodotti/Poltroncina Dream 3.jpg'
 
+import buffetRetro1 from '../assets/Prodotti/Buffet retro.jpeg'
+
 export const products = [
   {
     id: 1,
@@ -172,5 +174,15 @@ export const products = [
     price: 312,
     priceNote: '+ consegna',
     images: [poltroncinaDream1, poltroncinaDream2, poltroncinaDream3],
+  },
+  {
+    id: 15,
+    category: 'Buffet',
+    name: 'Buffet Retrò',
+    description:
+      'Buffet Retrò in legno laccato nero e piano in legno massello. Dimensioni 160 x 48 x 88 cm.',
+    price: 3690,
+    priceNote: '+ consegna e montaggio',
+    images: [buffetRetro1],
   },
 ]
